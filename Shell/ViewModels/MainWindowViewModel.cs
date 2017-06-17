@@ -1,16 +1,14 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Catel.Data;
 using Catel.IoC;
+using Catel.MVVM;
 using Catel.Services;
-using Shell.ViewModels.Controls;
 
 namespace Shell.ViewModels
 {
-    using Catel.Data;
-    using Catel.MVVM;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
-
     public class MainWindowViewModel : ViewModelBase
     {
         #region Fields
@@ -73,7 +71,6 @@ namespace Shell.ViewModels
         {
             return Task.Run(() =>
             {
-
                 CurrentPage = _view[1];
                 TitlePage = HomeViewModel.HomeTitle;
             });
@@ -114,8 +111,6 @@ namespace Shell.ViewModels
                 CurrentPage = _view[0];
                 TitlePage = AuthViewModel.AuthTitle;
             });
-
-
         }
 
         #endregion
@@ -125,23 +120,23 @@ namespace Shell.ViewModels
         private TaskCommand _reportButtonCommand;
 
         /// <summary>
-        /// Gets the ReportButton command.
+        ///     Gets the ReportButton command.
         /// </summary>
         public TaskCommand ReportButtonCommand
         {
-            get { return _reportButtonCommand ?? (_reportButtonCommand = new TaskCommand(ReportButton, CanReportButton)); }
+            get
+            {
+                return _reportButtonCommand ?? (_reportButtonCommand = new TaskCommand(ReportButton, CanReportButton));
+            }
         }
 
         /// <summary>
-        /// Method to invoke when the ReportButton command is executed.
+        ///     Method to invoke when the ReportButton command is executed.
         /// </summary>
         private Task ReportButton()
         {
             return Task.Run(() =>
             {
-
-                
-
                 var dependencyResolver = this.GetDependencyResolver();
                 var pleaseWaitService = dependencyResolver.Resolve<IPleaseWaitService>();
                 pleaseWaitService.Show("Загрузка...");
@@ -153,7 +148,7 @@ namespace Shell.ViewModels
         }
 
         /// <summary>
-        /// Method to check whether the ReportButton command can be executed.
+        ///     Method to check whether the ReportButton command can be executed.
         /// </summary>
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool CanReportButton()
@@ -170,7 +165,7 @@ namespace Shell.ViewModels
         private TaskCommand _aboutButtonCommand;
 
         /// <summary>
-        /// Gets the AboutButton command.
+        ///     Gets the AboutButton command.
         /// </summary>
         public TaskCommand AboutButtonCommand
         {
@@ -178,7 +173,7 @@ namespace Shell.ViewModels
         }
 
         /// <summary>
-        /// Method to invoke when the AboutButton command is executed.
+        ///     Method to invoke when the AboutButton command is executed.
         /// </summary>
         private Task AboutButton()
         {
@@ -186,13 +181,12 @@ namespace Shell.ViewModels
             {
                 CurrentPage = _view[2];
                 TitlePage = AboutViewModel.AboutTitle;
-
             });
             // TODO: Handle command logic here
         }
 
         /// <summary>
-        /// Method to check whether the AboutButton command can be executed.
+        ///     Method to check whether the AboutButton command can be executed.
         /// </summary>
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool CanAboutButton()
@@ -231,6 +225,5 @@ namespace Shell.ViewModels
         }
 
         #endregion
-    
     }
 }

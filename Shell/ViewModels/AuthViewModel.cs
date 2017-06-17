@@ -5,13 +5,12 @@ using Catel.Data;
 using Catel.IoC;
 using Catel.MVVM;
 using Catel.Services;
-using Shell.Models;
 using Shell.Models.DataModel;
 
 namespace Shell.ViewModels
 {
     public class AuthViewModel : ViewModelBase
-    {       
+    {
         internal static bool _LoginCheck;
         internal static string AuthTitle;
         private Command _authButtonCommand;
@@ -20,7 +19,7 @@ namespace Shell.ViewModels
         public AuthViewModel()
         {
             AuthTitle = Title;
-            BrushLogo = Brushes.White;           
+            BrushLogo = Brushes.White;
         }
 
         public override string Title
@@ -76,10 +75,11 @@ namespace Shell.ViewModels
         {
             var dependencyResolver = this.GetDependencyResolver();
             var pleaseWaitService = dependencyResolver.Resolve<IPleaseWaitService>();
-            pleaseWaitService.Show("Подключение к серверу...");   
+            pleaseWaitService.Show("Подключение к серверу...");
             var c = new Model();
 
-            if (c.Users.FirstOrDefault(x => x.Login == LoginTextBoxCheck && x.Password == PasswordPasswordBoxCheck) != null)
+            if (c.Users.FirstOrDefault(x => x.Login == LoginTextBoxCheck && x.Password == PasswordPasswordBoxCheck) !=
+                null)
             {
                 pleaseWaitService.Hide();
                 _LoginCheck = true;

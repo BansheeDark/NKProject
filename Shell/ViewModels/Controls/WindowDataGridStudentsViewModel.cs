@@ -2,14 +2,12 @@
 using System.Collections.ObjectModel;
 using Catel.Data;
 using Catel.IoC;
+using Catel.MVVM;
 using Shell.Models.DataModel;
 using Shell.Views.Controls;
 
 namespace Shell.ViewModels.Controls
 {
-    using Catel.MVVM;
-    using System.Threading.Tasks;
-
     public class WindowDataGridStudentsViewModel : ViewModelBase
     {
         public WindowDataGridStudentsViewModel(Students students = null)
@@ -19,7 +17,6 @@ namespace Shell.ViewModels.Controls
             var viewLocator = ServiceLocator.Default.ResolveType<IViewLocator>();
             viewLocator.Register(typeof(WindowDataGridStudentsViewModel), typeof(WindowDataGridStudentsView));
         }
-
 
         #region GroupCollection property
 

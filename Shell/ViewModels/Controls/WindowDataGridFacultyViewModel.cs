@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Catel.Data;
+﻿using Catel.Data;
 using Catel.IoC;
 using Catel.MVVM;
 using Shell.Models.DataModel;
@@ -25,7 +24,8 @@ namespace Shell.ViewModels.Controls
             private set { SetValue(FacultyCollectionProperty, value); }
         }
 
-        public static readonly PropertyData FacultyCollectionProperty = RegisterProperty("FacultyCollection", typeof(Faculty));
+        public static readonly PropertyData FacultyCollectionProperty = RegisterProperty("FacultyCollection",
+            typeof(Faculty));
 
         [ViewModelToModel("FacultyCollection")]
         public string University
@@ -40,7 +40,7 @@ namespace Shell.ViewModels.Controls
         #region Faculty property
 
         /// <summary>
-        /// Gets or sets the Faculty value.
+        ///     Gets or sets the Faculty value.
         /// </summary>
         [ViewModelToModel("FacultyCollection")]
         public string Name
@@ -50,7 +50,7 @@ namespace Shell.ViewModels.Controls
         }
 
         /// <summary>
-        /// Faculty property data.
+        ///     Faculty property data.
         /// </summary>
         public static readonly PropertyData NameProperty = RegisterProperty("Name", typeof(string), null);
 

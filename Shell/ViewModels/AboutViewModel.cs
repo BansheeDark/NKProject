@@ -1,17 +1,21 @@
-﻿namespace Shell.ViewModels
-{
-    using Catel.MVVM;
-    using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Catel.MVVM;
 
+namespace Shell.ViewModels
+{
     public class AboutViewModel : ViewModelBase
     {
-        internal static string AboutTitle; 
+        internal static string AboutTitle;
+
         public AboutViewModel()
         {
             AboutTitle = Title;
         }
 
-        public override string Title { get { return "О нас"; } }
+        public override string Title
+        {
+            get { return "О нас"; }
+        }
 
         // TODO: Register models with the vmpropmodel codesnippet
         // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets

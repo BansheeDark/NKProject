@@ -3,7 +3,6 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Catel.Data;
 using Catel.MVVM;
-using Shell.Models;
 using Shell.Models.DataModel;
 using Shell.ViewModels.Controls;
 

@@ -5,7 +5,6 @@ using Catel.Data;
 using Catel.IoC;
 using Catel.MVVM;
 using Catel.Services;
-using Shell.Models;
 using Shell.Models.DataModel;
 using Shell.Views.Controls;
 
@@ -143,7 +142,7 @@ namespace Shell.ViewModels.Controls
                 pleaseWaitService.Show("Синхронизация данных...");
                 if (FacultyCollection == null)
                 {
-                    _db.Faculty.Load();
+                    _db.Faculty.LoadAsync();
                     DbFaculty = new ObservableCollection<Faculty>(_db.Faculty);
                     FacultyCollection = DbFaculty;
                 }

@@ -173,7 +173,7 @@
         <Setter Property="Orientation" Value="Horizontal" />
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=ButtonLoaded, Path=IsEnabled}" Value="False">
-                <Setter Property="Background" Value="White"/>
+                <Setter Property="Background" Value="White" />
             </DataTrigger>
         </Style.Triggers>
     </Style>

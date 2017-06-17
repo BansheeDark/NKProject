@@ -209,13 +209,15 @@
                     TextBinding="{Binding Path=CodeGroups, Mode=TwoWay}">
                     <DataGridComboBoxColumn.ElementStyle>
                         <Style TargetType="ComboBox">
-                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.DbGroups, Mode=TwoWay}" />
+                            <Setter Property="ItemsSource"
+                                    Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.DbGroups, Mode=TwoWay}" />
                             <Setter Property="IsReadOnly" Value="True" />
                         </Style>
                     </DataGridComboBoxColumn.ElementStyle>
                     <DataGridComboBoxColumn.EditingElementStyle>
                         <Style TargetType="ComboBox">
-                            <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.DbGroups, Mode=TwoWay}" />
+                            <Setter Property="ItemsSource"
+                                    Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.DbGroups, Mode=TwoWay}" />
                         </Style>
                     </DataGridComboBoxColumn.EditingElementStyle>
                 </DataGridComboBoxColumn>
@@ -234,12 +236,14 @@
                 <DataGridTemplateColumn Width="*" Header="Дата Рождения">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock HorizontalAlignment="Center" Text="{Binding DateOfBirthday, Mode=TwoWay, StringFormat={}{0:dd.MM.yyyy}}" />
+                            <TextBlock HorizontalAlignment="Center"
+                                       Text="{Binding DateOfBirthday, Mode=TwoWay, StringFormat={}{0:dd.MM.yyyy}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                     <DataGridTemplateColumn.CellEditingTemplate>
                         <DataTemplate>
-                            <DatePicker SelectedDate="{Binding DateOfBirthday, Mode=TwoWay, StringFormat={}{0:dd.MM.yyyy}}" />
+                            <DatePicker
+                                SelectedDate="{Binding DateOfBirthday, Mode=TwoWay, StringFormat={}{0:dd.MM.yyyy}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellEditingTemplate>
                 </DataGridTemplateColumn>

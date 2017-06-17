@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using Catel.Data;
 using Catel.IoC;
 using Catel.MVVM;
 using Catel.Services;
-using Shell.Models;
 using Shell.Models.DataModel;
 using Shell.Views.Controls;
 
@@ -19,28 +14,24 @@ namespace Shell.ViewModels.Controls
 {
     public class DataGridStudentsViewModel : ViewModelBase
     {
+        
         private readonly Model _db;
         private IDependencyResolver _dependencyResolver;
         private IUIVisualizerService _uiVisualizerService;
-        internal static ObservableCollection<Students> sReport;
+
         public DataGridStudentsViewModel()
         {
             _db = HomeViewModel._hmdb;
             var viewLocator = ServiceLocator.Default.ResolveType<IViewLocator>();
             viewLocator.Register(typeof(DataGridStudentsViewModel), typeof(DataGridStudentsView));
-            if (DbStudents != null)
-            {
-                sReport = DbStudents;
-            }
         }
-
 
         #region Property
 
         #region CBI property
 
         /// <summary>
-        /// Gets or sets the CBI value.
+        ///     Gets or sets the CBI value.
         /// </summary>
         public string CBI
         {
@@ -49,7 +40,7 @@ namespace Shell.ViewModels.Controls
         }
 
         /// <summary>
-        /// CBI property data.
+        ///     CBI property data.
         /// </summary>
         public static readonly PropertyData CBIProperty = RegisterProperty("CBI", typeof(string));
 
@@ -96,7 +87,7 @@ namespace Shell.ViewModels.Controls
         #region TextFind property
 
         /// <summary>
-        /// Gets or sets the TextFind value.
+        ///     Gets or sets the TextFind value.
         /// </summary>
         public string TextFind
         {
@@ -105,28 +96,22 @@ namespace Shell.ViewModels.Controls
         }
 
         /// <summary>
-        /// TextFind property data.
+        ///     TextFind property data.
         /// </summary>
         public static readonly PropertyData TextFindProperty = RegisterProperty("TextFind", typeof(string), null,
-            (sender, e) => ((DataGridStudentsViewModel)sender).OnTextFindChanged());
+            (sender, e) => ((DataGridStudentsViewModel) sender).OnTextFindChanged());
 
         /// <summary>
-        /// Called when the TextFind property has changed.
+        ///     Called when the TextFind property has changed.
         /// </summary>
         private void OnTextFindChanged()
         {
             if (CBI == "Фамилии")
-            {
                 DbStudents = new ObservableCollection<Students>(_db.Students.Where(s => s.LastName.StartsWith(TextFind)));
-
-            }
             else if (CBI == "Группе")
-            {
-                DbStudents = new ObservableCollection<Students>(_db.Students.Where(s => s.CodeGroups.StartsWith(TextFind)));
-
-            }
+                DbStudents =
+                    new ObservableCollection<Students>(_db.Students.Where(s => s.CodeGroups.StartsWith(TextFind)));
             else if (CBI == "Возрасту")
-            {
                 if (TextFind == "")
                 {
                     DbStudents = new ObservableCollection<Students>(_db.Students);
@@ -135,9 +120,7 @@ namespace Shell.ViewModels.Controls
                 {
                     int? a = Convert.ToInt32(TextFind);
                     DbStudents = new ObservableCollection<Students>(_db.Students.Where(s => s.Age >= a));
-
                 }
-            }
         }
 
         #endregion
@@ -205,6 +188,7 @@ namespace Shell.ViewModels.Controls
                 }
             });
         }
+
         private bool CanDbLoaded()
         {
             if (DbStudents == null)
@@ -246,6 +230,7 @@ namespace Shell.ViewModels.Controls
                 {
                     DbGroups = DataGridGroupsViewModel.GroupsCollection;
                 }
+                _db.Students.LoadAsync();
                 DbStudents = null;
                 DbStudents = new ObservableCollection<Students>(_db.Students);
                 pleaseWaitService.Hide();

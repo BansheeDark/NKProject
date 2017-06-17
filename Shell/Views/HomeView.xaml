@@ -21,39 +21,36 @@
 
     <Grid>
 
-        <Grid>
+        <Grid Margin="25">
             <Grid.RowDefinitions>
-                <RowDefinition Height="25" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="10" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="25" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="25" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="25" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+            <GridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"  Width="3"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></GridSplitter>
             <ContentPresenter
                 x:Name="ContentPresenterDataGridStudents"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.RowSpan="3"
-                Grid.Column="3"
+                Grid.Column="2"
                 Content="{Binding LoadDataGridStudents, Converter={StaticResource ViewModelToViewConverter}}" />
 
             <ContentPresenter
                 x:Name="ContentPresenterDataGridGroups"
-                Grid.Row="1"
-                Grid.Column="1"
+                Grid.Row="0"
+                Grid.Column="0"
                 Content="{Binding LoadDataGridGroups, Converter={StaticResource ViewModelToViewConverter}}" />
             <ContentPresenter
                 x:Name="ContentPresenterDataGridFaculty"
-                Grid.Row="3"
-                Grid.Column="1"
+                Grid.Row="2"
+                Grid.Column="0"
                 Content="{Binding LoadDataGridFaculty, Converter={StaticResource ViewModelToViewConverter}}" />
 
         </Grid>
@@ -61,4 +58,3 @@
     </Grid>
 
 </catel:UserControl>
-

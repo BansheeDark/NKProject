@@ -1,14 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using Catel.Data;
 using Catel.IoC;
+using Catel.MVVM;
 using Shell.Models.DataModel;
 using Shell.Views.Controls;
 
 namespace Shell.ViewModels.Controls
 {
-    using Catel.MVVM;
-
-
     public class WindowDataGridGroupsViewModel : ViewModelBase
     {
         public WindowDataGridGroupsViewModel(Groups groups = null)
@@ -22,7 +20,7 @@ namespace Shell.ViewModels.Controls
         #region FacultyCollection property
 
         /// <summary>
-        /// Gets or sets the FacultyCollection value.
+        ///     Gets or sets the FacultyCollection value.
         /// </summary>
         public ObservableCollection<Faculty> FacultyCollection
         {
@@ -31,16 +29,17 @@ namespace Shell.ViewModels.Controls
         }
 
         /// <summary>
-        /// FacultyCollection property data.
+        ///     FacultyCollection property data.
         /// </summary>
-        public static readonly PropertyData FacultyCollectionProperty = RegisterProperty("FacultyCollection", typeof(ObservableCollection<Faculty>));
+        public static readonly PropertyData FacultyCollectionProperty = RegisterProperty("FacultyCollection",
+            typeof(ObservableCollection<Faculty>));
 
         #endregion
 
         #region GroupsCollection model property
 
         /// <summary>
-        /// Gets or sets the DbGroups value.
+        ///     Gets or sets the DbGroups value.
         /// </summary>
         [Model]
         public Groups GroupsCollection
@@ -50,9 +49,10 @@ namespace Shell.ViewModels.Controls
         }
 
         /// <summary>
-        /// DbGroups property data.
+        ///     DbGroups property data.
         /// </summary>
-        public static readonly PropertyData GroupsCollectionProperty = RegisterProperty("GroupsCollection", typeof(Groups));
+        public static readonly PropertyData GroupsCollectionProperty = RegisterProperty("GroupsCollection",
+            typeof(Groups));
 
         [ViewModelToModel("GroupsCollection")]
         public string Name
@@ -96,7 +96,7 @@ namespace Shell.ViewModels.Controls
         #region Training property
 
         /// <summary>
-        /// Gets or sets the Training value.
+        ///     Gets or sets the Training value.
         /// </summary>
         [ViewModelToModel("GroupsCollection")]
         public string Training
@@ -106,7 +106,7 @@ namespace Shell.ViewModels.Controls
         }
 
         /// <summary>
-        /// Training property data.
+        ///     Training property data.
         /// </summary>
         public static readonly PropertyData TrainingProperty = RegisterProperty("Training", typeof(string));
 

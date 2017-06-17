@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using Catel.Data;
 using Catel.IoC;
 using Catel.MVVM;
 using Catel.Services;
-using Shell.Models;
 using Shell.Models.DataModel;
 using Shell.Views.Controls;
 
@@ -17,7 +15,6 @@ namespace Shell.ViewModels.Controls
         private readonly Model _db;
         private IDependencyResolver _dependencyResolver;
         private IUIVisualizerService _uiVisualizerService;
-        internal static ObservableCollection<Groups> GroupsCollection { get; set; }
 
         public DataGridGroupsViewModel()
         {
@@ -26,6 +23,7 @@ namespace Shell.ViewModels.Controls
             viewLocator.Register(typeof(DataGridGroupsViewModel), typeof(DataGridGroupsView));
         }
 
+        internal static ObservableCollection<Groups> GroupsCollection { get; set; }
 
         #region Property
 
@@ -173,7 +171,7 @@ namespace Shell.ViewModels.Controls
                 pleaseWaitService.Show("Синхронизация данных...");
                 if (GroupsCollection == null)
                 {
-                    _db.Groups.Load();
+                    _db.Groups.LoadAsync();
                     DbGroups = new ObservableCollection<Groups>(_db.Groups);
                     GroupsCollection = DbGroups;
                 }
@@ -350,7 +348,5 @@ namespace Shell.ViewModels.Controls
         #endregion
 
         #endregion
-
-       
     }
 }
