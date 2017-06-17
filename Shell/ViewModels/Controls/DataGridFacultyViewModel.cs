@@ -142,7 +142,7 @@ namespace Shell.ViewModels.Controls
                 pleaseWaitService.Show("Синхронизация данных...");
                 if (FacultyCollection == null)
                 {
-                    _db.Faculty.LoadAsync();
+                    _db.Faculty.Load();
                     DbFaculty = new ObservableCollection<Faculty>(_db.Faculty);
                     FacultyCollection = DbFaculty;
                 }

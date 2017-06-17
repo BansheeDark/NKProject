@@ -171,7 +171,7 @@ namespace Shell.ViewModels.Controls
                 pleaseWaitService.Show("Синхронизация данных...");
                 if (GroupsCollection == null)
                 {
-                    _db.Groups.LoadAsync();
+                    _db.Groups.Load();
                     DbGroups = new ObservableCollection<Groups>(_db.Groups);
                     GroupsCollection = DbGroups;
                 }
@@ -181,6 +181,7 @@ namespace Shell.ViewModels.Controls
                 }
                 if (DataGridFacultyViewModel.FacultyCollection == null)
                 {
+                    _db.Faculty.Local.Clear();
                     _db.Faculty.Load();
                     DbFaculty = new ObservableCollection<Faculty>(_db.Faculty);
                     DataGridFacultyViewModel.FacultyCollection = DbFaculty;

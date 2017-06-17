@@ -229,9 +229,8 @@ namespace Shell.ViewModels.Controls
                 else
                 {
                     DbGroups = DataGridGroupsViewModel.GroupsCollection;
-                }
-                _db.Students.LoadAsync();
-                DbStudents = null;
+                }                
+                _db.Students.Load();
                 DbStudents = new ObservableCollection<Students>(_db.Students);
                 pleaseWaitService.Hide();
             });
