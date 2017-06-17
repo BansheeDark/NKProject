@@ -21,5 +21,17 @@ namespace Shell.Views
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK);
             }
         }
+
+        private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://github.com/BansheeDark/NKProject.git");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK);
+            }
+        }
     }
 }

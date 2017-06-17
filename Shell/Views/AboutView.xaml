@@ -15,19 +15,10 @@
 
     <Grid>
         <Grid Margin="175,25">
-            <Border Background="Black" Opacity="0.4">
-                <Border.Effect>
-                    <DropShadowEffect
-                        BlurRadius="30"
-                        Direction="100"
-                        Opacity="0.4"
-                        Color="#FF02F0FB" />
-                </Border.Effect>
-
-            </Border>
+            <Border Background="Black" Opacity="0.4" />
             <StackPanel>
                 <FlowDocumentScrollViewer
-                    Margin="0,50,0,0"
+                    Margin="0,5,0,0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
                     FontSize="14"
@@ -98,6 +89,46 @@
                         </Table>
                     </FlowDocument>
                 </FlowDocumentScrollViewer>
+            </StackPanel>
+            <StackPanel
+                Margin="20,0,0,10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom">
+                <TextBlock
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    FontSize="14"
+                    Foreground="White">
+                    Ссылка на исходный код проекта
+                </TextBlock>
+                <TextBlock HorizontalAlignment="Right">
+                    <Hyperlink
+                        Click="Hyperlink_Click_1"
+                        FontSize="14"
+                        Foreground="White"
+                        NavigateUri="https://github.com/BansheeDark/NKProject.git"
+                        TextDecorations="None">
+                        <TextBlock Text="github.com/BansheeDark/NKProject.git">
+                            <TextBlock.ToolTip>
+                                <ToolTip Background="#90004455">
+                                    <StackPanel>
+                                        <TextBlock Margin="3" Foreground="White">Скачать проект</TextBlock>
+                                    </StackPanel>
+                                </ToolTip>
+                            </TextBlock.ToolTip>
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Foreground" Value="Orange" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Foreground" Value="Aqua" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </Hyperlink>
+                </TextBlock>
             </StackPanel>
             <StackPanel
                 Margin="0,0,20,10"
