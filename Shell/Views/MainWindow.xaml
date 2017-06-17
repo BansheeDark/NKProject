@@ -88,7 +88,7 @@
                         SelectionCommand="{Binding ReportButtonCommand, IsAsync=True}"
                         Text="Отчёты" />
                     <HamburgerMenu:HamburgerMenuItem
-                        Content="&#xED54;"
+                        Content="&#xE00A;"
                         FontFamily="Segoe MDL2 Assets"
                         SelectionCommand="{Binding AboutButtonCommand, IsAsync=True}"
                         Text="О нас" />

@@ -69,7 +69,7 @@ namespace Shell.ViewModels
         /// </summary>
         private Task HomeButton()
         {
-            return Task.Run(() =>
+            return Task.Factory.StartNew(() =>
             {
                 CurrentPage = _view[1];
                 TitlePage = HomeViewModel.HomeTitle;
@@ -106,7 +106,7 @@ namespace Shell.ViewModels
         /// </summary>
         private Task AuthButton()
         {
-            return Task.Run(() =>
+            return Task.Factory.StartNew(() =>
             {
                 CurrentPage = _view[0];
                 TitlePage = AuthViewModel.AuthTitle;
@@ -135,7 +135,7 @@ namespace Shell.ViewModels
         /// </summary>
         private Task ReportButton()
         {
-            return Task.Run(() =>
+            return Task.Factory.StartNew(() =>
             {
                 var dependencyResolver = this.GetDependencyResolver();
                 var pleaseWaitService = dependencyResolver.Resolve<IPleaseWaitService>();
@@ -177,7 +177,7 @@ namespace Shell.ViewModels
         /// </summary>
         private Task AboutButton()
         {
-            return Task.Run(() =>
+            return Task.Factory.StartNew(() =>
             {
                 CurrentPage = _view[2];
                 TitlePage = AboutViewModel.AboutTitle;
