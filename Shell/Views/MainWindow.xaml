@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:Shell.ViewModels"
+    Title="СУБД by NK"
     MinWidth="1024"
     MinHeight="800"
     d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel,
@@ -15,7 +16,7 @@
     d:DesignWidth="800"
     Background="#FF191919"
     SizeToContent="Manual"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Icon="Themes/Images/Entypo_e754(0).ico">
 
     <catel:Window.Resources>
         <catel:ViewModelToViewConverter x:Key="ViewModelToViewConverter" />

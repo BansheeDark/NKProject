@@ -296,6 +296,9 @@
     <Resource Include="Views\Themes\Images\material-design-4k.jpg" />
     <Resource Include="Views\Themes\Images\points_cubes_background_light_91691_1920x1080.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\Themes\Images\Entypo_e754%280%29.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
