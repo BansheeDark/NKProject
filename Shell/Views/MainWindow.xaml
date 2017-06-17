@@ -91,7 +91,7 @@
                         Content="&#xE00A;"
                         FontFamily="Segoe MDL2 Assets"
                         SelectionCommand="{Binding AboutButtonCommand, IsAsync=True}"
-                        Text="О нас" />
+                        Text="О нас"  />
                 </HamburgerMenu:HamburgerMenu.Content>
             </HamburgerMenu:HamburgerMenu>
         </Grid>
