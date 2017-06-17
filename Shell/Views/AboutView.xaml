@@ -95,7 +95,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom">
                 <TextBlock
-                    HorizontalAlignment="Right"
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     FontSize="14"
                     Foreground="White">
