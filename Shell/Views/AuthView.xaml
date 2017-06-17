@@ -1,0 +1,91 @@
+﻿<catel:UserControl
+    x:Class="Shell.Views.AuthView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+    Style="{StaticResource UserControlStyle}">
+    <catel:UserControl.Background>
+        <ImageBrush ImageSource="Themes/Images/backgroundAuth.jpg" Stretch="UniformToFill" />
+    </catel:UserControl.Background>
+
+    <Grid>
+        <Grid>
+            <Grid
+                Width="260"
+                Height="191"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="Black"
+                Opacity="0.4" />
+            <DockPanel>
+                <StackPanel
+                    Width="220"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Vertical">
+                    <Label
+                        x:Name="labellogin"
+                        Content="ЛОГИН"
+                        Style="{StaticResource labelloginS}" />
+                    <TextBox
+                        x:Name="textBoxlogin"
+                        CaretBrush="Gray"
+                        Style="{StaticResource textboxloginS}"
+                        Template="{StaticResource textboxloginT}"
+                        Text="{Binding LoginTextBoxCheck, Mode=TwoWay}"
+                        TextWrapping="Wrap" />
+                    <Label
+                        x:Name="labelpass"
+                        Content="ПАРОЛЬ"
+                        Style="{StaticResource labelpassS}" />
+                    <TextBox
+                        x:Name="passwordBox"
+                        CaretBrush="Gray"
+                        Style="{StaticResource passboxloginS}"
+                        Template="{StaticResource passboxloginT}"
+                        Text="{Binding PasswordPasswordBoxCheck, Mode=TwoWay}" />
+                    <Button
+                        x:Name="buttonIN"
+                        Command="{Binding AuthButtonCommand}"
+                        Style="{StaticResource buttonINS}"
+                        Template="{StaticResource buttonINT}" />
+                </StackPanel>
+            </DockPanel>
+            <Grid
+                Name="GridOK"
+                Width="120"
+                Height="120"
+                Margin="0,0,0,400"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="{x:Null}">
+                <Border Style="{StaticResource border1}" />
+                <DockPanel Width="100" Height="100">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <ContentControl
+                            Name="OKsymbols"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="&#xE13D;"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="50"
+                            Foreground="{Binding BrushLogo}" />
+                        <TextBlock
+                            Name="OKtext"
+                            FontSize="12"
+                            FontWeight="Black"
+                            Foreground="White"
+                            Text="Авторизация" />
+                    </StackPanel>
+                </DockPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+
+</catel:UserControl>

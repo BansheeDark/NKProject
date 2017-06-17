@@ -1,0 +1,99 @@
+﻿<catel:Window
+    x:Class="Shell.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+    xmlns:catel="http://catel.codeplex.com"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Shell.ViewModels"
+    MinWidth="1024"
+    MinHeight="800"
+    d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="1024"
+    d:DesignWidth="800"
+    Background="#FF191919"
+    SizeToContent="Manual"
+    mc:Ignorable="d">
+
+    <catel:Window.Resources>
+        <catel:ViewModelToViewConverter x:Key="ViewModelToViewConverter" />
+    </catel:Window.Resources>
+    <Grid Margin="-6">
+
+        <ContentPresenter
+            x:Name="ContentPresenter"
+            Content="{Binding CurrentPage, Converter={StaticResource ViewModelToViewConverter}, IsAsync=True}"
+            Style="{StaticResource ContentPresenterS}" />
+        <ToggleButton
+            x:Name="Buttonview"
+            Style="{StaticResource buttonViewS}"
+            Template="{StaticResource buttonViewT}" />
+        <Grid Name="GridNavigator" Style="{StaticResource GridNavigatorS}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    x:Name="HomeButton"
+                    Grid.Column="0"
+                    Command="{Binding HomeButtonCommand, IsAsync=True}"
+                    Style="{StaticResource homebuttonstyle}"
+                    Template="{StaticResource buttonTemplate}" />
+                <DockPanel Grid.Column="1" Style="{StaticResource dockpanel}">
+                    <ContentControl
+                        x:Name="ContentWatcher"
+                        Content="{Binding TitlePage, IsAsync=True}"
+                        Style="{StaticResource contentwatcherstyle}"
+                        Template="{StaticResource contentstatustemplate}" />
+                </DockPanel>
+                <DockPanel Grid.Column="2" Style="{StaticResource dockpanel}">
+                    <Button
+                        x:Name="AuthButton"
+                        Command="{Binding AuthButtonCommand, IsAsync=True}"
+                        Style="{StaticResource authbuttonstyle}"
+                        Template="{StaticResource buttonTemplate}" />
+                </DockPanel>
+            </Grid>
+
+            <HamburgerMenu:HamburgerMenu
+                x:Name="Hambergermenu"
+                Grid.Row="1"
+                Style="{StaticResource Humburgerbutton}">
+                <HamburgerMenu:HamburgerMenu.Content>
+                    <HamburgerMenu:HamburgerMenuItem
+                        Name="AuthItem"
+                        Content="&#xE192;"
+                        FontFamily="Segoe MDL2 Assets"
+                        SelectionCommand="{Binding AuthButtonCommand, IsAsync=True}"
+                        Text="Авторизация" />
+                    <HamburgerMenu:HamburgerMenuItem
+                        Name="HomeItem"
+                        Content="&#xE83B;"
+                        FontFamily="Segoe MDL2 Assets"
+                        SelectionCommand="{Binding HomeButtonCommand, IsAsync=True}"
+                        Text="База данных" />
+                    <HamburgerMenu:HamburgerMenuItem
+                        Name="ReportItem"
+                        Content="&#xE8A1;"
+                        FontFamily="Segoe MDL2 Assets"
+                        SelectionCommand="{Binding ReportButtonCommand, IsAsync=True}"
+                        Text="Отчёты" />
+                    <HamburgerMenu:HamburgerMenuItem
+                        Content="&#xED54;"
+                        FontFamily="Segoe MDL2 Assets"
+                        SelectionCommand="{Binding AboutButtonCommand, IsAsync=True}"
+                        Text="О нас" />
+                </HamburgerMenu:HamburgerMenu.Content>
+            </HamburgerMenu:HamburgerMenu>
+        </Grid>
+
+    </Grid>
+</catel:Window>
