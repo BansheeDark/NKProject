@@ -147,7 +147,7 @@
             VerticalAlignment="Stretch"
             Background="{TemplateBinding Background}"
             BorderBrush="{TemplateBinding BorderBrush}"
-            BorderThickness="{TemplateBinding BorderThickness}">
+            BorderThickness="{TemplateBinding BorderThickness}" >
             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
             <Border.RenderTransform>
                 <ScaleTransform

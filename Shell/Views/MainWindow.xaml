@@ -8,15 +8,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:Shell.ViewModels"
     Title="СУБД by NK"
-    MinWidth="1024"
-    MinHeight="800"
+    MinWidth="800"
+    MinHeight="600"
     d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel,
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="1024"
     d:DesignWidth="800"
     Background="#FF191919"
+    Icon="Themes/Images/Entypo_e754(0).ico"
     SizeToContent="Manual"
-    mc:Ignorable="d" Icon="Themes/Images/Entypo_e754(0).ico">
+    mc:Ignorable="d">
 
     <catel:Window.Resources>
         <catel:ViewModelToViewConverter x:Key="ViewModelToViewConverter" />
@@ -91,7 +92,7 @@
                         Content="&#xE00A;"
                         FontFamily="Segoe MDL2 Assets"
                         SelectionCommand="{Binding AboutButtonCommand, IsAsync=True}"
-                        Text="О нас"  />
+                        Text="О нас" />
                 </HamburgerMenu:HamburgerMenu.Content>
             </HamburgerMenu:HamburgerMenu>
         </Grid>

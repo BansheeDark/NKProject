@@ -6,58 +6,24 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
     Style="{StaticResource UserControlStyle}">
-    <catel:UserControl.Background>
-        <ImageBrush ImageSource="Themes/Images/backgroundAuth.jpg" Stretch="UniformToFill" />
-    </catel:UserControl.Background>
 
     <Grid>
-        <Grid>
+        <Grid Style="{StaticResource GridAuthS}">
+            <Grid.Background>
+                <ImageBrush ImageSource="Themes/Images/backgroundAuth.jpg" Stretch="UniformToFill" />
+            </Grid.Background>
+        </Grid>
+        <Grid Margin="25" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition MinHeight="100" MaxHeight="200" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <Grid
-                Width="260"
-                Height="191"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="Black"
-                Opacity="0.4" />
-            <DockPanel>
-                <StackPanel
-                    Width="220"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Orientation="Vertical">
-                    <Label
-                        x:Name="labellogin"
-                        Content="ЛОГИН"
-                        Style="{StaticResource labelloginS}" />
-                    <TextBox
-                        x:Name="textBoxlogin"
-                        CaretBrush="Gray"
-                        Style="{StaticResource textboxloginS}"
-                        Template="{StaticResource textboxloginT}"
-                        Text="{Binding LoginTextBoxCheck, Mode=TwoWay}"
-                        TextWrapping="Wrap" />
-                    <Label
-                        x:Name="labelpass"
-                        Content="ПАРОЛЬ"
-                        Style="{StaticResource labelpassS}" />
-                    <TextBox
-                        x:Name="passwordBox"
-                        CaretBrush="Gray"
-                        Style="{StaticResource passboxloginS}"
-                        Template="{StaticResource passboxloginT}"
-                        Text="{Binding PasswordPasswordBoxCheck, Mode=TwoWay}" />
-                    <Button
-                        x:Name="buttonIN"
-                        Command="{Binding AuthButtonCommand}"
-                        Style="{StaticResource buttonINS}"
-                        Template="{StaticResource buttonINT}" />
-                </StackPanel>
-            </DockPanel>
-            <Grid
-                Name="GridOK"
+                x:Name="GridOK"
+                Grid.Row="0"
                 Width="120"
                 Height="120"
-                Margin="0,0,0,400"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Background="{x:Null}">
@@ -68,7 +34,7 @@
                         VerticalAlignment="Center"
                         Orientation="Vertical">
                         <ContentControl
-                            Name="OKsymbols"
+                            x:Name="OKsymbols"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Content="&#xE13D;"
@@ -76,7 +42,7 @@
                             FontSize="50"
                             Foreground="{Binding BrushLogo}" />
                         <TextBlock
-                            Name="OKtext"
+                            x:Name="OKtext"
                             FontSize="12"
                             FontWeight="Black"
                             Foreground="White"
@@ -84,6 +50,51 @@
                     </StackPanel>
                 </DockPanel>
 
+            </Grid>
+            <Grid
+                x:Name="GridAuth"
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Border
+                    Width="260"
+                    Height="192"
+                    Background="Black"
+                    Opacity="0.4" />
+                <DockPanel>
+                    <StackPanel
+                        Width="220"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <Label
+                            x:Name="labellogin"
+                            Content="ЛОГИН"
+                            Style="{StaticResource labelloginS}" />
+                        <TextBox
+                            x:Name="textBoxlogin"
+                            CaretBrush="Gray"
+                            Style="{StaticResource textboxloginS}"
+                            Template="{StaticResource textboxloginT}"
+                            Text="{Binding LoginTextBoxCheck, Mode=TwoWay}"
+                            TextWrapping="Wrap" />
+                        <Label
+                            x:Name="labelpass"
+                            Content="ПАРОЛЬ"
+                            Style="{StaticResource labelpassS}" />
+                        <TextBox
+                            x:Name="passwordBox"
+                            CaretBrush="Gray"
+                            Style="{StaticResource passboxloginS}"
+                            Template="{StaticResource passboxloginT}"
+                            Text="{Binding PasswordPasswordBoxCheck, Mode=TwoWay}" />
+                        <Button
+                            x:Name="buttonIN"
+                            Command="{Binding AuthButtonCommand}"
+                            Style="{StaticResource buttonINS}"
+                            Template="{StaticResource buttonINT}" />
+                    </StackPanel>
+                </DockPanel>
             </Grid>
         </Grid>
     </Grid>
