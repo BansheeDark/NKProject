@@ -8,8 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:Shell.ViewModels"
     Title="СУБД by NK"
-    MinWidth="800"
-    MinHeight="600"
+    MinWidth="400"
+    MinHeight="300"
     d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel,
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="1024"

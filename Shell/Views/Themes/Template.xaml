@@ -67,7 +67,7 @@
     <!--#endregion Шаблоны кнопок-->
     <!--#region Шаблоны кнопок-->
     <ControlTemplate x:Key="buttonViewT" TargetType="ToggleButton">
-        <Grid Width="25" Height="25">
+        <Grid Width="25" Height="25" RenderTransformOrigin="0.5,0.5">
             <Ellipse Fill="Black" />
             <ContentPresenter
                 HorizontalAlignment="Center"
@@ -75,9 +75,7 @@
                 Content="{TemplateBinding Content}" />
             <Grid.RenderTransform>
                 <ScaleTransform
-                    x:Name="transform"
-                    CenterX="12.5"
-                    CenterY="12.5" />
+                    x:Name="transform"/>
             </Grid.RenderTransform>
         </Grid>
         <ControlTemplate.Triggers>
@@ -147,13 +145,10 @@
             VerticalAlignment="Stretch"
             Background="{TemplateBinding Background}"
             BorderBrush="{TemplateBinding BorderBrush}"
-            BorderThickness="{TemplateBinding BorderThickness}" >
-            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            BorderThickness="{TemplateBinding BorderThickness}"  RenderTransformOrigin="0.5 0.5" >
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"  />
             <Border.RenderTransform>
-                <ScaleTransform
-                    x:Name="transform"
-                    CenterX="110"
-                    CenterY="22.5" />
+                <ScaleTransform x:Name="transform"/>
             </Border.RenderTransform>
         </Border>
 

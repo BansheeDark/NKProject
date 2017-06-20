@@ -7,15 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="1024"
     d:DesignWidth="1600"
+    Language="ru-RU"
     Style="{StaticResource UserControlStyle}"
     mc:Ignorable="d">
-    <catel:UserControl.Background>
-        <ImageBrush ImageSource="Themes/Images/points_cubes_background_light_91691_1920x1080.jpg" />
-    </catel:UserControl.Background>
 
     <Grid>
+        <Grid x:Name="src">
+            <Grid.Background>
+                <ImageBrush ImageSource="Themes/Images/backgroundAuth.jpg" Stretch="UniformToFill" />
+            </Grid.Background>
+        </Grid>
         <Grid Margin="175,25">
-            <Border Background="Black" Opacity="0.4" />
+            <Border>
+                <Border>
+                    <Border.Effect>
+                        <BlurEffect Radius="30"  />
+                    </Border.Effect>
+                    <Border.Background>
+                        <VisualBrush Stretch="None" Visual="{Binding ElementName=src}" />
+                    </Border.Background>
+                </Border>
+            </Border>
+            <Border Background="Black" Opacity="0.3" />
             <StackPanel>
                 <FlowDocumentScrollViewer
                     Margin="0,5,0,0"

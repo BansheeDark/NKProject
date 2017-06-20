@@ -8,7 +8,7 @@
     Style="{StaticResource UserControlStyle}">
 
     <Grid>
-        <Grid Style="{StaticResource GridAuthS}">
+        <Grid x:Name="src">
             <Grid.Background>
                 <ImageBrush ImageSource="Themes/Images/backgroundAuth.jpg" Stretch="UniformToFill" />
             </Grid.Background>
@@ -19,15 +19,31 @@
                 <RowDefinition MinHeight="100" MaxHeight="200" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
             <Grid
                 x:Name="GridOK"
                 Grid.Row="0"
-                Width="120"
-                Height="120"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Background="{x:Null}">
-                <Border Style="{StaticResource border1}" />
+                Grid.Column="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Border>
+                    <Border Style="{StaticResource border1}">
+                        <Border.Effect>
+                            <BlurEffect Radius="20" />
+                        </Border.Effect>
+                        <Border.Background>
+                            <VisualBrush Stretch="None" Visual="{Binding ElementName=src}" />
+                        </Border.Background>
+                    </Border>
+                </Border>
+                <Border
+                    Background="Black"
+                    Opacity="0.3"
+                    Style="{StaticResource border1}" />
                 <DockPanel Width="100" Height="100">
                     <StackPanel
                         HorizontalAlignment="Center"
@@ -54,17 +70,22 @@
             <Grid
                 x:Name="GridAuth"
                 Grid.Row="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-                <Border
-                    Width="260"
-                    Height="192"
-                    Background="Black"
-                    Opacity="0.4" />
+                Grid.Column="1">
+                <Border>
+                    <Border Margin="0">
+                        <Border.Effect>
+                            <BlurEffect Radius="30" />
+                        </Border.Effect>
+                        <Border.Background>
+                            <VisualBrush Stretch="None" Visual="{Binding ElementName=src}" />
+                        </Border.Background>
+                    </Border>
+                </Border>
+                <Border Background="Black" Opacity="0.3" />
                 <DockPanel>
                     <StackPanel
-                        Width="220"
-                        HorizontalAlignment="Center"
+                        Margin="15"
+                        HorizontalAlignment="Stretch"
                         VerticalAlignment="Center"
                         Orientation="Vertical">
                         <Label
@@ -92,7 +113,7 @@
                             x:Name="buttonIN"
                             Command="{Binding AuthButtonCommand}"
                             Style="{StaticResource buttonINS}"
-                            Template="{StaticResource buttonINT}" />
+                            Template="{StaticResource buttonINT}" Height="Auto" />
                     </StackPanel>
                 </DockPanel>
             </Grid>

@@ -123,11 +123,9 @@
     <!--#endregion КНОПКИ-->
     <!--#region Гриды-->
     <Style x:Key="border1" TargetType="Border">
-        <Setter Property="Background" Value="Black" />
-        <Setter Property="CornerRadius" Value="50" />
-        <Setter Property="Opacity" Value="0.4" />
-        <Setter Property="Width" Value="120" />
-        <Setter Property="Height" Value="120" />
+        <Setter Property="CornerRadius" Value="360" />
+        <Setter Property="Width" Value="140" />
+        <Setter Property="Height" Value="140" />
         <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
     </Style>
     <!--#endregion Гриды-->
@@ -136,13 +134,13 @@
         <Setter Property="Background" Value="Black" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="Height" Value="20" />
+        <Setter Property="Height" Value="Auto" />
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
     <Style x:Key="passboxloginS" TargetType="TextBox">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="White" />
-        <Setter Property="Height" Value="20" />
+        <Setter Property="Height" Value="Auto" />
         <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
     <Style x:Key="labelpassS" TargetType="Label">
@@ -211,17 +209,6 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="GridAuthS" TargetType="Grid">
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=GridAuth, Path=IsMouseOver}" Value="True">
-                <Setter Property="Effect">
-                    <Setter.Value>
-                        <BlurEffect Radius="20" />
-                    </Setter.Value>
-                </Setter>
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
     <Style x:Key="DataWindowStyle" TargetType="catel:DataWindow">
         <Style.Triggers>
             <EventTrigger />

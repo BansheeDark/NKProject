@@ -191,8 +191,8 @@ namespace Shell.ViewModels
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool CanAboutButton()
         {
-            if (AuthViewModel._LoginCheck == false)
-                return false;
+            //if (AuthViewModel._LoginCheck == false)
+            //    return false;
             return true;
         }
 
