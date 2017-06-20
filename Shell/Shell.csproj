@@ -58,6 +58,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Entypo_e754%280%29.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Catel.Core, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Catel.Core.4.5.4\lib\net40\Catel.Core.dll</HintPath>
@@ -320,12 +323,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Views\Themes\Images\backgroundAuth.jpg" />
-    <Resource Include="Views\Themes\Images\material-design-4k.jpg" />
-    <Resource Include="Views\Themes\Images\points_cubes_background_light_91691_1920x1080.jpg" />
+    <Resource Include="Views\Themes\Images\bgSpace.jpg" />
+    <Resource Include="Views\Themes\Images\bgCube.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Views\Themes\Images\Entypo_e754%280%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Entypo_e754%280%29.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

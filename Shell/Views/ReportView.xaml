@@ -10,18 +10,20 @@
     d:DesignWidth="1600"
     Style="{StaticResource UserControlStyle}"
     mc:Ignorable="d">
-    <catel:UserControl.Background>
-        <ImageBrush ImageSource="Themes/Images/points_cubes_background_light_91691_1920x1080.jpg" />
-    </catel:UserControl.Background>
 
     <Grid>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="{StaticResource imageHome}"/>
+            </Grid.Background>
+        </Grid>
         <Grid Margin="175,25,155,25">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="155" />
             </Grid.ColumnDefinitions>
             <WindowsFormsHost>
-                <rv:ReportViewer x:Name="_reportViewer" Load="ReportViewer_Load" />
+                <rv:ReportViewer x:Name="_reportViewer" Load="ReportViewer_Load" ZoomMode="PageWidth" UseWaitCursor="True" />
             </WindowsFormsHost>
             <StackPanel Grid.Column="1" Margin="15,0,15,0">
                 <Label

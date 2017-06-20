@@ -14,19 +14,18 @@
     <Grid>
         <Grid x:Name="src">
             <Grid.Background>
-                <ImageBrush ImageSource="Themes/Images/backgroundAuth.jpg" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="{StaticResource imageHome}" Stretch="UniformToFill" />
             </Grid.Background>
         </Grid>
         <Grid Margin="175,25">
-            <Border>
-                <Border>
+         
+                <Border ClipToBounds="True">
                     <Border.Effect>
-                        <BlurEffect Radius="30"  />
+                        <BlurEffect Radius="30" KernelType="Gaussian" RenderingBias="Quality"  />
                     </Border.Effect>
-                    <Border.Background>
-                        <VisualBrush Stretch="None" Visual="{Binding ElementName=src}" />
-                    </Border.Background>
-                </Border>
+                <Border.Background>
+                    <VisualBrush Stretch="None" Visual="{Binding ElementName=src}" />
+                </Border.Background>
             </Border>
             <Border Background="Black" Opacity="0.3" />
             <StackPanel>

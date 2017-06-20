@@ -15,12 +15,13 @@
     <catel:UserControl.Resources>
         <catel:ViewModelToViewConverter x:Key="ViewModelToViewConverter" />
     </catel:UserControl.Resources>
-    <catel:UserControl.Background>
-        <ImageBrush ImageSource="Themes/Images/points_cubes_background_light_91691_1920x1080.jpg" />
-    </catel:UserControl.Background>
 
     <Grid>
-
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="{StaticResource imageHome}"/>
+            </Grid.Background>
+        </Grid>
         <Grid Margin="25">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

@@ -3,6 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
     xmlns:catel="http://catel.codeplex.com">
+    
+    <!--#region Images-->
+
+    <BitmapImage x:Key="imageAuth" UriSource="../Themes/Images/bgSpace.jpg" />
+    <BitmapImage x:Key="imageHome" UriSource="../Themes/Images/bgCube.jpg" />
+
+    <!--#endregion-->
+    
     <!--#region ШАПКА-->
 
     <!--#region Стили кнопок-->
@@ -128,6 +136,7 @@
         <Setter Property="Height" Value="140" />
         <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
     </Style>
+
     <!--#endregion Гриды-->
     <!--#region тектстблоки, label и пассблоки-->
     <Style x:Key="textboxloginS" TargetType="TextBox">
@@ -153,7 +162,7 @@
         <Setter Property="Foreground" Value="#FFC8C8C8" />
         <Setter Property="FontWeight" Value="Black" />
     </Style>
-    <!--#region DbStudentsView-->
+    
     <Style x:Key="LabelDbStudentsView" TargetType="Label">
         <Setter Property="Margin" Value="5" />
         <Setter Property="Width" Value="100" />
