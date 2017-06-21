@@ -1,55 +1,71 @@
-﻿using System.Linq;
+﻿using System;
+using System.Configuration;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using Catel.Data;
 using Catel.IoC;
 using Catel.MVVM;
 using Catel.Services;
 using Shell.Models.DataModel;
+using Shell.Services.Interfaces;
 
 namespace Shell.ViewModels
 {
     public class AuthViewModel : ViewModelBase
     {
-        internal static bool _LoginCheck;
+        internal static bool LoginCheck;
         internal static string AuthTitle;
-        private Command _authButtonCommand;
-
-
         public AuthViewModel()
         {
             AuthTitle = Title;
+            AuthButtonCommand = new Command<object>(AuthButton);
             BrushLogo = Brushes.White;
         }
 
-        public override string Title
+        public override string Title => "Авторизация";
+
+        #region Convert
+
+        private string ConvertToUnsecureString(SecureString securePassword)
         {
-            get { return "Авторизация"; }
+            if (securePassword == null)
+                return string.Empty;
+
+            var unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString =
+                    Marshal.SecureStringToGlobalAllocUnicode(securePassword);
+                return Marshal.PtrToStringUni(unmanagedString);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
         }
+
+        #endregion
+
 
         #region Methods
 
-        public Brush BrushLogo
+         public Brush BrushLogo
         {
-            get { return GetValue<Brush>(BrushLogoProperty); }
-            set { SetValue(BrushLogoProperty, value); }
+            get => GetValue<Brush>(BrushLogoProperty);
+            set => SetValue(BrushLogoProperty, value);
         }
 
         public static readonly PropertyData BrushLogoProperty = RegisterProperty("BrushLogo", typeof(Brush));
 
-        public string PasswordPasswordBoxCheck
-        {
-            get { return GetValue<string>(PasswordPasswordBoxCheckProperty); }
-            set { SetValue(PasswordPasswordBoxCheckProperty, value); }
-        }
-
-        public static readonly PropertyData PasswordPasswordBoxCheckProperty =
-            RegisterProperty("PasswordPasswordBoxCheck", typeof(string));
-
         public string LoginTextBoxCheck
         {
-            get { return GetValue<string>(LoginTextBoxCheckProperty); }
-            set { SetValue(LoginTextBoxCheckProperty, value); }
+            get => GetValue<string>(LoginTextBoxCheckProperty);
+            set => SetValue(LoginTextBoxCheckProperty, value);
         }
 
         /// <summary>
@@ -62,38 +78,40 @@ namespace Shell.ViewModels
 
         #region Commands
 
-        public Command AuthButtonCommand
-        {
-            get
-            {
-                return _authButtonCommand ??
-                       (_authButtonCommand = new Command(AuthButton, CanAuthButton));
-            }
-        }
+        public ICommand AuthButtonCommand { get; }
 
-        private void AuthButton()
-        {
+        private void AuthButton(object parameter)
+        {           
             var dependencyResolver = this.GetDependencyResolver();
             var pleaseWaitService = dependencyResolver.Resolve<IPleaseWaitService>();
-            pleaseWaitService.Show("Подключение к серверу...");
-            var c = new Model();
+            
+            var passwordContainer = parameter as IHavePassword;
 
-            if (c.Users.FirstOrDefault(x => x.Login == LoginTextBoxCheck && x.Password == PasswordPasswordBoxCheck) !=
-                null)
+            if (passwordContainer != null)
             {
+                pleaseWaitService.Show("Подключение к серверу...");
+                var secureString = passwordContainer.Password;
+                var password = ConvertToUnsecureString(secureString);
+                var Model = new Model();
+          
+                if (Model.Users.FirstOrDefault(x => x.Login == LoginTextBoxCheck &&
+                                                    x.Password == password) !=
+                    null)
+                {
+                    pleaseWaitService.Hide();
+                    LoginCheck = true;
+                    BrushLogo = Brushes.LightGreen;                   
+                    return;
+                }
                 pleaseWaitService.Hide();
-                _LoginCheck = true;
-                BrushLogo = Brushes.LightGreen;
-                return;
+                BrushLogo = Brushes.Red;
+                LoginCheck = false;
             }
-            pleaseWaitService.Hide();
-            BrushLogo = Brushes.Red;
-            _LoginCheck = false;
-        }
+    }
 
         private bool CanAuthButton()
         {
-            if (_LoginCheck == false)
+            if (LoginCheck == false)
                 return true;
             return false;
         }

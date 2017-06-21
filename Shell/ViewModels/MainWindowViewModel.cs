@@ -28,13 +28,14 @@ namespace Shell.ViewModels
             };
             TitlePage = AuthViewModel.AuthTitle;
             CurrentPage = _view.First();
+
         }
 
         #region Property
 
         public IViewModel CurrentPage
         {
-            get { return GetValue<IViewModel>(CurrentPageProperty); }
+            get { return  GetValue<IViewModel>(CurrentPageProperty); }
             set { SetValue(CurrentPageProperty, value); }
         }
 
@@ -82,7 +83,7 @@ namespace Shell.ViewModels
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool CanHomeButton()
         {
-            if (AuthViewModel._LoginCheck == false)
+            if (AuthViewModel.LoginCheck == false)
                 return false;
             return true;
         }
@@ -153,7 +154,7 @@ namespace Shell.ViewModels
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool CanReportButton()
         {
-            if (AuthViewModel._LoginCheck == false)
+            if (AuthViewModel.LoginCheck == false)
                 return false;
             return true;
         }
@@ -191,7 +192,7 @@ namespace Shell.ViewModels
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool CanAboutButton()
         {
-            if (AuthViewModel._LoginCheck == false)
+            if (AuthViewModel.LoginCheck == false)
                 return false;
             return true;
         }

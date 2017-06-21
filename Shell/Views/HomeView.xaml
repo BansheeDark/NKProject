@@ -19,7 +19,7 @@
     <Grid>
         <Grid>
             <Grid.Background>
-                <ImageBrush ImageSource="{StaticResource imageHome}"/>
+                <ImageBrush ImageSource="{StaticResource imageHome}" />
             </Grid.Background>
         </Grid>
         <Grid Margin="25">
@@ -34,8 +34,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <GridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"  Width="3"
-                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch"></GridSplitter>
+            <GridSplitter
+                Grid.Row="0"
+                Grid.RowSpan="3"
+                Grid.Column="1"
+                Width="3"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" />
             <ContentPresenter
                 x:Name="ContentPresenterDataGridStudents"
                 Grid.Row="0"

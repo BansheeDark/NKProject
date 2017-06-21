@@ -67,15 +67,17 @@
     <!--#endregion Шаблоны кнопок-->
     <!--#region Шаблоны кнопок-->
     <ControlTemplate x:Key="buttonViewT" TargetType="ToggleButton">
-        <Grid Width="25" Height="25" RenderTransformOrigin="0.5,0.5">
+        <Grid
+            Width="25"
+            Height="25"
+            RenderTransformOrigin="0.5,0.5">
             <Ellipse Fill="Black" />
             <ContentPresenter
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Content="{TemplateBinding Content}" />
             <Grid.RenderTransform>
-                <ScaleTransform
-                    x:Name="transform"/>
+                <ScaleTransform x:Name="transform" />
             </Grid.RenderTransform>
         </Grid>
         <ControlTemplate.Triggers>
@@ -145,10 +147,14 @@
             VerticalAlignment="Stretch"
             Background="{TemplateBinding Background}"
             BorderBrush="{TemplateBinding BorderBrush}"
-            BorderThickness="{TemplateBinding BorderThickness}"  RenderTransformOrigin="0.5 0.5" >
-            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"  />
+            BorderThickness="{TemplateBinding BorderThickness}"
+            RenderTransformOrigin="0.5 0.5">
+            <ContentPresenter
+                Margin="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
             <Border.RenderTransform>
-                <ScaleTransform x:Name="transform"/>
+                <ScaleTransform x:Name="transform" />
             </Border.RenderTransform>
         </Border>
 
@@ -200,7 +206,7 @@
             <ScrollViewer x:Name="PART_ContentHost" Margin="0" />
         </Border>
     </ControlTemplate>
-    <ControlTemplate x:Key="passboxloginT" TargetType="TextBox">
+    <ControlTemplate x:Key="passboxloginT" TargetType="PasswordBox">
         <Border BorderBrush="#FFC8C8C8" BorderThickness="0,0,0,2">
             <ScrollViewer x:Name="PART_ContentHost" Margin="0" />
         </Border>

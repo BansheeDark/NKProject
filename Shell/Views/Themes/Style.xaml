@@ -3,14 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
     xmlns:catel="http://catel.codeplex.com">
-    
+
     <!--#region Images-->
 
     <BitmapImage x:Key="imageAuth" UriSource="../Themes/Images/bgSpace.jpg" />
     <BitmapImage x:Key="imageHome" UriSource="../Themes/Images/bgCube.jpg" />
 
     <!--#endregion-->
-    
+
     <!--#region ШАПКА-->
 
     <!--#region Стили кнопок-->
@@ -146,7 +146,7 @@
         <Setter Property="Height" Value="Auto" />
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
-    <Style x:Key="passboxloginS" TargetType="TextBox">
+    <Style x:Key="passboxloginS" TargetType="PasswordBox">
         <Setter Property="FontSize" Value="14" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Height" Value="Auto" />
@@ -162,7 +162,7 @@
         <Setter Property="Foreground" Value="#FFC8C8C8" />
         <Setter Property="FontWeight" Value="Black" />
     </Style>
-    
+
     <Style x:Key="LabelDbStudentsView" TargetType="Label">
         <Setter Property="Margin" Value="5" />
         <Setter Property="Width" Value="100" />

@@ -21,7 +21,7 @@ namespace Shell.ViewModels.Controls
 
         public DataGridStudentsViewModel()
         {
-            _db = HomeViewModel._hmdb;
+            _db = HomeViewModel.Model;
             var viewLocator = ServiceLocator.Default.ResolveType<IViewLocator>();
             viewLocator.Register(typeof(DataGridStudentsViewModel), typeof(DataGridStudentsView));
         }
@@ -169,7 +169,7 @@ namespace Shell.ViewModels.Controls
                 var dependencyResolver = this.GetDependencyResolver();
                 var pleaseWaitService = dependencyResolver.Resolve<IPleaseWaitService>();
 
-                if (AuthViewModel._LoginCheck)
+                if (AuthViewModel.LoginCheck)
                 {
                     pleaseWaitService.Show("Загружаем таблицы с сервера...");
                     if (DataGridGroupsViewModel.GroupsCollection == null)

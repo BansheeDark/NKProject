@@ -1,3 +1,8 @@
+using System.Data.Common;
+using System.Data.Entity.Core.EntityClient;
+using System.Data.Entity.Infrastructure;
+using System.Configuration;
+
 namespace Shell.Models.DataModel
 {
     using System;
@@ -7,8 +12,9 @@ namespace Shell.Models.DataModel
 
     public partial class Model : DbContext
     {
+
         public Model()
-            : base("name=ConString")
+            : base("Shell.Properties.Settings.ConString")
         {
         }
 

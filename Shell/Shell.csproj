@@ -117,6 +117,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO, Version=2.6.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -168,6 +169,7 @@
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\DataModel\Students.cs" />
     <Compile Include="Models\DataModel\Users.cs" />
+    <Compile Include="Services\Interfaces\IHavePassword.cs" />
     <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\AuthViewModel.cs" />
     <Compile Include="ViewModels\Controls\DataGridFacultyViewModel.cs" />
@@ -313,9 +315,7 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HamburgerMenu\HamburgerMenu.csproj">
       <Project>{cf1b7d25-4744-4b04-b725-7f2d8223806b}</Project>

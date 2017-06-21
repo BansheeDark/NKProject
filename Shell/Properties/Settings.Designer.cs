@@ -12,7 +12,7 @@ namespace Shell.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,11 +26,12 @@ namespace Shell.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=danabolsql.database.windows.net;Initial Catalog=data_st;Persist Secur" +
-            "ity Info=True;User ID=danabol;Password=17091997aA")]
-        public string data_stConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=danabolsql.database.windows.net;initial catalog=data_st;persist secur" +
+            "ity info=True;User ID=danabol;Password=17091997aA;MultipleActiveResultSets=True;" +
+            "App=EntityFramework")]
+        public string ConString {
             get {
-                return ((string)(this["data_stConnectionString"]));
+                return ((string)(this["ConString"]));
             }
         }
     }

@@ -2,13 +2,13 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Shell.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="data_stConnectionString" Type="(Connection string)" Scope="Application">
+    <Setting Name="ConString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=danabolsql.database.windows.net;Initial Catalog=data_st;Persist Security Info=True;User ID=danabol;Password=17091997aA&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;data source=danabolsql.database.windows.net;initial catalog=data_st;persist security info=True;User ID=danabol;Password=17091997aA;MultipleActiveResultSets=True;App=EntityFramework&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=danabolsql.database.windows.net;Initial Catalog=data_st;Persist Security Info=True;User ID=danabol;Password=17091997aA</Value>
+      <Value Profile="(Default)">data source=danabolsql.database.windows.net;initial catalog=data_st;persist security info=True;User ID=danabol;Password=17091997aA;MultipleActiveResultSets=True;App=EntityFramework</Value>
     </Setting>
   </Settings>
 </SettingsFile>

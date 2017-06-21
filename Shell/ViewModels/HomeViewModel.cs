@@ -10,30 +10,27 @@ namespace Shell.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
-        internal static Model _hmdb;
+        internal static Model Model;
         public static string HomeTitle;
         public static ObservableCollection<Groups> DbGroupsCollection;
-        private readonly List<IViewModel> _view;
+        private readonly List<IViewModel> view;
 
         public HomeViewModel()
         {
             HomeTitle = Title;
-            _hmdb = new Model();
-            _view = new List<IViewModel>
+            Model = new Model();
+            view = new List<IViewModel>
             {
                 new DataGridGroupsViewModel(),
                 new DataGridStudentsViewModel(),
                 new DataGridFacultyViewModel()
             };
-            LoadDataGridStudents = _view[1];
-            LoadDataGridGroups = _view[0];
-            LoadDataGridFaculty = _view[2];
+            LoadDataGridStudents = view[1];
+            LoadDataGridGroups = view[0];
+            LoadDataGridFaculty = view[2];
         }
 
-        public override string Title
-        {
-            get { return "База данных"; }
-        }
+        public override string Title => "База данных";
 
         // TODO: Register models with the vmpropmodel codesnippet
         // TODO: Register view model properties with the vmprop or vmpropviewmodeltomodel codesnippets
@@ -62,8 +59,8 @@ namespace Shell.ViewModels
         /// </summary>
         public IViewModel LoadDataGridStudents
         {
-            get { return GetValue<IViewModel>(LoadDataGridStudentsProperty); }
-            set { SetValue(LoadDataGridStudentsProperty, value); }
+            get => GetValue<IViewModel>(LoadDataGridStudentsProperty);
+            set => SetValue(LoadDataGridStudentsProperty, value);
         }
 
         /// <summary>
@@ -81,8 +78,8 @@ namespace Shell.ViewModels
         /// </summary>
         public IViewModel LoadDataGridGroups
         {
-            get { return GetValue<IViewModel>(LoadDataGridGroupsProperty); }
-            set { SetValue(LoadDataGridGroupsProperty, value); }
+            get => GetValue<IViewModel>(LoadDataGridGroupsProperty);
+            set => SetValue(LoadDataGridGroupsProperty, value);
         }
 
         /// <summary>
@@ -100,8 +97,8 @@ namespace Shell.ViewModels
         /// </summary>
         public IViewModel LoadDataGridFaculty
         {
-            get { return GetValue<IViewModel>(LoadDataGridFacultyProperty); }
-            set { SetValue(LoadDataGridFacultyProperty, value); }
+            get => GetValue<IViewModel>(LoadDataGridFacultyProperty);
+            set => SetValue(LoadDataGridFacultyProperty, value);
         }
 
         /// <summary>

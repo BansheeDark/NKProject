@@ -18,11 +18,14 @@
             </Grid.Background>
         </Grid>
         <Grid Margin="175,25">
-         
-                <Border ClipToBounds="True">
-                    <Border.Effect>
-                        <BlurEffect Radius="30" KernelType="Gaussian" RenderingBias="Quality"  />
-                    </Border.Effect>
+
+            <Border ClipToBounds="True">
+                <Border.Effect>
+                    <BlurEffect
+                        KernelType="Gaussian"
+                        Radius="30"
+                        RenderingBias="Quality" />
+                </Border.Effect>
                 <Border.Background>
                     <VisualBrush Stretch="None" Visual="{Binding ElementName=src}" />
                 </Border.Background>
