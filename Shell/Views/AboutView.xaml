@@ -73,7 +73,7 @@
                                         <Paragraph>VK:</Paragraph>
                                     </TableCell>
                                     <TableCell>
-                                        <Paragraph>vk.com/bansheedark</Paragraph>
+                                        <Paragraph>vk.com/Yikita</Paragraph>
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
@@ -121,9 +121,9 @@
                         Click="Hyperlink_Click_1"
                         FontSize="14"
                         Foreground="White"
-                        NavigateUri="https://github.com/BansheeDark/NKProject.git"
+                        NavigateUri="https://github.com/Yikita/NKProject.git"
                         TextDecorations="None">
-                        <TextBlock Text="github.com/BansheeDark/NKProject.git">
+                        <TextBlock Text="github.com/Yikita/NKProject.git">
                             <TextBlock.ToolTip>
                                 <ToolTip Background="#90004455">
                                     <StackPanel>
