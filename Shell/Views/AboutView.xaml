@@ -121,9 +121,9 @@
                         Click="Hyperlink_Click_1"
                         FontSize="14"
                         Foreground="White"
-                        NavigateUri="https://github.com/Yikita/NKProject.git"
+                        NavigateUri="https://github.com/YekitKsv/NKProject.git"
                         TextDecorations="None">
-                        <TextBlock Text="github.com/Yikita/NKProject.git">
+                        <TextBlock Text="github.com/YekitKsv/NKProject.git">
                             <TextBlock.ToolTip>
                                 <ToolTip Background="#90004455">
                                     <StackPanel>
